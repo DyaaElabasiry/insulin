@@ -11,9 +11,10 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
     <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS"/>
     <uses-permission android:name="android.permission.BLUETOOTH_PRIVILEGED"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
    <application
-        android:label="HedgDose"
+        android:label="I Band"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
 

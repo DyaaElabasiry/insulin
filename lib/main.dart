@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'HedgDose',
+      title: 'I Band',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
@@ -31,13 +31,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
-  late final AnimationController _animationController ;
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    _animationController= AnimationController(vsync: this, duration: Duration(seconds: 1)) ;
-  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -124,49 +118,46 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
                   Expanded(
                       child: SizedBox(
                         width: double.maxFinite,
-                        child: AnimatedBuilder(
-                          animation: _animationController,
-                          builder: (context,child)=>SleekCircularSlider(
-                            innerWidget: (value) {
-                              return Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Text(
-                                    'Glucose level',
-                                    style: TextStyle(color: Colors.black54),
-                                  ),
-                                  Text(
-                                    '${value.toInt()}',
-                                    style: TextStyle(
-                                        fontSize: 40,
-                                        fontWeight: FontWeight.w500),
-                                  ),
-                                  Text(
-                                    'mg/dL',
-                                    style: TextStyle(color: Colors.black54),
-                                  ),
-                                ],
-                              );
-                            },
-                            appearance: CircularSliderAppearance(
-                                animationEnabled: true,
-                                animDurationMultiplier: 1.1,
-                                spinnerMode: false,
-                                customColors: CustomSliderColors(
-                                    hideShadow: true,
-                                    dotColor: Colors.transparent,
-                                    progressBarColors: [
-                                      Color.fromRGBO(250, 92, 103, 1),
-                                      Color.fromRGBO(104, 92, 250, 1),
-                                    ]),
-                                size: 200,
-                                customWidths:
-                                CustomSliderWidths(progressBarWidth: 15)),
-                            min: 90,
-                            max: 250,
-                            initialValue: 190,
-                          )
-                        ),
+                        child: SleekCircularSlider(
+                          innerWidget: (value) {
+                            return Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  'Glucose level',
+                                  style: TextStyle(color: Colors.black54),
+                                ),
+                                Text(
+                                  '${value.toInt()}',
+                                  style: TextStyle(
+                                      fontSize: 40,
+                                      fontWeight: FontWeight.w500),
+                                ),
+                                Text(
+                                  'mg/dL',
+                                  style: TextStyle(color: Colors.black54),
+                                ),
+                              ],
+                            );
+                          },
+                          appearance: CircularSliderAppearance(
+                              animationEnabled: true,
+                              animDurationMultiplier: 1.1,
+                              spinnerMode: false,
+                              customColors: CustomSliderColors(
+                                  hideShadow: true,
+                                  dotColor: Colors.transparent,
+                                  progressBarColors: [
+                                    Color.fromRGBO(250, 92, 103, 1),
+                                    Color.fromRGBO(104, 92, 250, 1),
+                                  ]),
+                              size: 200,
+                              customWidths:
+                              CustomSliderWidths(progressBarWidth: 15)),
+                          min: 90,
+                          max: 250,
+                          initialValue: 100,
+                        )
                       )),
                   MyLiquidProgress(percent: 70,),
                 ],
